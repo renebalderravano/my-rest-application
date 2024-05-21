@@ -1,0 +1,22 @@
+{"properties": [
+  {
+    "name": "datasource.driver-class-name",
+    "type": "java.lang.String",
+    "description": "'datasource.driver-class-name' indica el driver correspondiente al motor de base de datos."
+  },
+  {
+    "name": "datasource.url",
+    "type": "java.lang.String",
+    "description": "'datasource.url' indica la cadena de conexión a la base de datos."
+  },
+  {
+    "name": "datasource.username",
+    "type": "java.lang.String",
+    "description": "'datasource.username' indica el nombre de usuario para conectarse a la DB."
+  },
+  {
+    "name": "datasource.password",
+    "type": "java.lang.String",
+    "description": "'datasource.password' indica el password utilizado por la cuenta de usuario."
+  }
+]}
