@@ -1,6 +1,6 @@
 package com.myapplication.model;
 
-import jakarta.persistence.*;
+import javax.persistence.*;
 
 @Entity
 @Table(name = "publication")

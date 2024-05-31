@@ -8,10 +8,10 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 
-import jakarta.persistence.EntityManager;
-import jakarta.persistence.criteria.CriteriaBuilder;
-import jakarta.persistence.criteria.CriteriaQuery;
-import jakarta.persistence.criteria.Root;
+import javax.persistence.EntityManager;
+import javax.persistence.criteria.CriteriaBuilder;
+import javax.persistence.criteria.CriteriaQuery;
+import javax.persistence.criteria.Root;
 
 public abstract class BaseRespository<T> {
 
@@ -35,7 +35,6 @@ public abstract class BaseRespository<T> {
 		return t;
 	}
 
-	@SuppressWarnings("deprecation")
 	public void update(T housingLocation) {
 		Session session = this.sf.getCurrentSession();
 		session.update(housingLocation);
@@ -63,6 +62,10 @@ public abstract class BaseRespository<T> {
 		Session session = this.sf.getCurrentSession();
 		T hl = (T) session.byId(entityClass).load(id);
 		session.delete(hl);
+	}
+	
+	public SessionFactory getSf() {
+		return sf;
 	}
 
 }

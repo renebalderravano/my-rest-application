@@ -51,7 +51,7 @@ public abstract class BaseController<T> {
 		return (List<T>) callMethod(getService(), "findAll", null, null);
 	}
 
-	@CrossOrigin
+	@CrossOrigin(origins = "*")
 	@GetMapping(path = "/findById/{id}")
 	public T findById(@PathVariable("id") Integer id) {
 		return (T) callMethod(getService(), "findById", new Object[] { id }, id.getClass());
