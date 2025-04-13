@@ -19,6 +19,8 @@
 	</properties>
 
 	<dependencies>
+
+		<!-- spring boot, hibernate jpa, mysql  -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
@@ -30,18 +32,26 @@
 			<artifactId>spring-boot-starter-data-jpa</artifactId>
 		</dependency>
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> a253bca23852c8443db7631db84154760796a46a
 		<dependency>
 			<groupId>mysql</groupId>
 			<artifactId>mysql-connector-java</artifactId>
 			<version>8.0.33</version>
 		</dependency>
 
+<<<<<<< HEAD
+=======
+		<!-- spring security  -->
+>>>>>>> a253bca23852c8443db7631db84154760796a46a
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-security</artifactId>
 		</dependency>
 
+<<<<<<< HEAD
 		<!--
 		https://mvnrepository.com/artifact/org.springframework.security/spring-security-config -->
 
@@ -58,6 +68,12 @@
 			<groupId>org.springframework.security</groupId>
 			<artifactId>spring-security-core</artifactId>
 			 <version>4.0.3.RELEASE</version>
+=======
+		<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-core</artifactId>
+			<version>4.2.20.RELEASE</version>
+>>>>>>> a253bca23852c8443db7631db84154760796a46a
 		</dependency>
 
 		<dependency>
@@ -66,12 +82,24 @@
 			<version>4.2.20.RELEASE</version>
 		</dependency>
 
+<<<<<<< HEAD
 
+=======
+		<dependency>
+			<groupId>org.springframework.security.oauth</groupId>
+			<artifactId>spring-security-oauth2</artifactId>
+			<version>2.1.0.RELEASE</version>
+		</dependency>
+>>>>>>> a253bca23852c8443db7631db84154760796a46a
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-oauth2-client</artifactId>
 		</dependency>
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> a253bca23852c8443db7631db84154760796a46a
 	</dependencies>
 
 	<build>

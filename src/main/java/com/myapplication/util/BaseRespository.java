@@ -35,7 +35,6 @@ public abstract class BaseRespository<T> {
 		return t;
 	}
 
-	@SuppressWarnings("deprecation")
 	public void update(T housingLocation) {
 		Session session = this.getSf().getCurrentSession();
 		session.update(housingLocation);
@@ -64,6 +63,10 @@ public abstract class BaseRespository<T> {
 		Session session = this.getSf().getCurrentSession();
 		T hl = (T) session.byId(entityClass).load(id);
 		session.delete(hl);
+	}
+	
+	public SessionFactory getSf() {
+		return sf;
 	}
 
 	public SessionFactory getSf() {
