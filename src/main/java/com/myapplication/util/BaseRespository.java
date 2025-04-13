@@ -8,10 +8,10 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 
-import jakarta.persistence.EntityManager;
-import jakarta.persistence.criteria.CriteriaBuilder;
-import jakarta.persistence.criteria.CriteriaQuery;
-import jakarta.persistence.criteria.Root;
+import javax.persistence.EntityManager;
+import javax.persistence.criteria.CriteriaBuilder;
+import javax.persistence.criteria.CriteriaQuery;
+import javax.persistence.criteria.Root;
 
 public abstract class BaseRespository<T> {
 
@@ -28,7 +28,7 @@ public abstract class BaseRespository<T> {
 
 	@SuppressWarnings("deprecation")
 	public T save(T t) {
-		Session s = sf.getCurrentSession();
+		Session s = getSf().getCurrentSession();
 		s.beginTransaction();		
 		s.saveOrUpdate(t);		
 		s.getTransaction().commit();
@@ -37,32 +37,37 @@ public abstract class BaseRespository<T> {
 
 	@SuppressWarnings("deprecation")
 	public void update(T housingLocation) {
-		Session session = this.sf.getCurrentSession();
+		Session session = this.getSf().getCurrentSession();
 		session.update(housingLocation);
 	}
 
 	public List<T> findAll() {
-		Session session = this.sf.getCurrentSession();
+		Session session = this.getSf().getCurrentSession();
 		EntityManager em = session.getEntityManagerFactory().createEntityManager();
 		CriteriaBuilder cb = em.getCriteriaBuilder();
 		CriteriaQuery<T> q = cb.createQuery(entityClass);
 		Root<T> root = q.from(entityClass);
 		q.select(root);
+	
 		List<T> l = em.createQuery(q).getResultList();
 		return l;
 	}
 
 	public T findById(Integer id) {
-		Session session = this.sf.getCurrentSession();
+		Session session = this.getSf().getCurrentSession();
 		T hl = (T) session.byId(entityClass).load(id);
 		return hl;
 	}
 
 	@SuppressWarnings("deprecation")
 	public void delete(Integer id) {
-		Session session = this.sf.getCurrentSession();
+		Session session = this.getSf().getCurrentSession();
 		T hl = (T) session.byId(entityClass).load(id);
 		session.delete(hl);
+	}
+
+	public SessionFactory getSf() {
+		return sf;
 	}
 
 }

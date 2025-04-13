@@ -35,6 +35,7 @@ public abstract class BaseService<T> {
 	public void update(T housingLocation) {
 	}
 
+	
 	public List<T> findAll() {		
 
 		return (List<T>) callMethod(getRepository(), "findAll", null, null);
